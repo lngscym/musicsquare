@@ -35,8 +35,7 @@
       height: 100%;
       background: var(--bg-dark);
       color: var(--text-main);
-      overflow-y: auto;
-      overflow-x: hidden; /* 页面横向不滚动 */
+      overflow: auto;   /* 页面横向不滚动 */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
@@ -1492,7 +1491,6 @@
     const translations = {
       zh: {
         appTitle:"妙香音乐空间",
-        authorLabel:"作者：Zhenchao Jin + GPT 5.1",
         shortcutHint:"快捷键：Space 播放/暂停 · ←/→ 跳转 · ↑/↓ 音量 · N/P 切歌 · F 收藏 · L 切换歌词效果",
         shortcutPanelTitle:"快捷键说明",
         shortcutPanelDesc:"使用键盘可以更加方便地控制妙香音乐空间：",
@@ -2223,7 +2221,7 @@
       if(act){
         act.classList.add('active');
         const box=dom.lyricsContainer;
-        box.scrollTo({top:act.offsetTop-box.clientHeight*0.45,behavior:'smooth'});
+        box.scrollTo({top:act.offsetTop-box.clientHeight*1,behavior:'smooth'});
       }
     }
 
