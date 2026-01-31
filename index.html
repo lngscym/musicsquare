@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <title>皮卡丘的音乐站 - Pikachu Music</title>
+  <title>妙香音乐空间 - MXLG Music</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 圆润可爱字体 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,8 @@
       height: 100%;
       background: var(--bg-dark);
       color: var(--text-main);
-      overflow: hidden; /* 页面整体不滚动 */
+      overflow-y: auto;
+      overflow-x: hidden; /* 页面横向不滚动 */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
@@ -1220,8 +1221,8 @@
           <img src="pikachu.gif" alt="Pikachu" class="pikachu-img">
         </div>
         <div class="title-text">
-          <h1 data-i18n="appTitle">皮卡丘的音乐站</h1>
-          <p data-i18n="authorLabel">作者：Zhenchao Jin + GPT 5.1</p>
+          <h1 data-i18n="appTitle">妙香音乐空间</h1>
+          <p data-i18n="authorLabel">作者：MXLG</p>
         </div>
       </div>
       <div class="header-controls">
@@ -1442,7 +1443,7 @@
         <button id="shortcut-close" class="modal-close-btn">×</button>
       </div>
       <p class="modal-desc" data-i18n="shortcutPanelDesc">
-        使用键盘可以更加方便地控制皮卡丘的音乐站：
+        使用键盘可以更加方便地控制妙香音乐空间：
       </p>
       <div class="shortcut-grid">
         <div class="shortcut-card">
@@ -1490,11 +1491,11 @@
   (function(){
     const translations = {
       zh: {
-        appTitle:"皮卡丘的音乐站",
+        appTitle:"妙香音乐空间",
         authorLabel:"作者：Zhenchao Jin + GPT 5.1",
         shortcutHint:"快捷键：Space 播放/暂停 · ←/→ 跳转 · ↑/↓ 音量 · N/P 切歌 · F 收藏 · L 切换歌词效果",
         shortcutPanelTitle:"快捷键说明",
-        shortcutPanelDesc:"使用键盘可以更加方便地控制皮卡丘的音乐站：",
+        shortcutPanelDesc:"使用键盘可以更加方便地控制妙香音乐空间：",
         shortcutPlayPause:"播放 / 暂停",
         shortcutSeek:"快退 / 快进 5 秒",
         shortcutVolume:"音量加 / 减",
