@@ -691,21 +691,15 @@
     }
 
    /* 歌词区域 */
-/* lyrics-container 假设选择器是 .lyrics-container */
 .lyrics-container {
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
-  scroll-behavior: smooth;           /* 平滑滚动（备用） */
-  min-height: 0;                     /* 若放在 flex 容器中，允许收缩，保障 overflow 生效 */
+  -webkit-overflow-scrolling: touch;
+  /* 可选：scroll-behavior: smooth; 但脚本使用 scrollTo 时也指定 smooth */
+  min-height: 0; /* 如果父元素是 flex，避免滚动失效 */
 }
-
-/* 每行文本：推荐用 text-align 居中（比 display:flex 更可靠） */
 .lyrics-line {
   display: block;
   text-align: center;
-  /* 保留已有动画/样式 */
-  transition: transform .25s ease, color .25s ease, text-shadow .25s ease, opacity .25s ease;
-  will-change: transform, opacity; /* 可选：提示优化 */
 }
   .lyrics-container {
   flex: 1;
