@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   /* 原来: height: calc(100vh - 104px); 现在乘以 2 */
-  height: calc(200vh - 208px);
+  height: calc(150vh - 156px);
   margin: 44px 80px;
   padding: 10px 12px;
   gap: 10px;
@@ -78,10 +78,10 @@
 
 /* media queries 中也相应按原公式乘以 2 */
 @media (max-width: 1280px) {
-  .app { margin: 32px 40px; height: calc(200vh - 140px); } /* = 2*(100vh - 70px) */
+  .app { margin: 32px 40px; height: calc(150vh - 105px); } /* = 2*(100vh - 70px) */
 }
 @media (max-width: 900px) {
-  .app { margin: 16px; height: calc(200vh - 64px); } /* = 2*(100vh - 32px) */
+  .app { margin: 16px; height: calc(150vh - 48px); } /* = 2*(100vh - 32px) */
 }
 
     .ripple-target,
@@ -691,18 +691,21 @@
     }
 
    /* 歌词区域 */
-  .lyrics-container {
-  /* 原有样式 */
-  scroll-snap-type: y mandatory;
-  scroll-padding: 50% 0; /* 居中的关键 */
+/* lyrics-container 假设选择器是 .lyrics-container */
+.lyrics-container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+  scroll-behavior: smooth;           /* 平滑滚动（备用） */
+  min-height: 0;                     /* 若放在 flex 容器中，允许收缩，保障 overflow 生效 */
 }
 
-.lyric-line {
-  scroll-snap-align: center;
-  height: 40px; /* 固定每行高度 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 每行文本：推荐用 text-align 居中（比 display:flex 更可靠） */
+.lyrics-line {
+  display: block;
+  text-align: center;
+  /* 保留已有动画/样式 */
+  transition: transform .25s ease, color .25s ease, text-shadow .25s ease, opacity .25s ease;
+  will-change: transform, opacity; /* 可选：提示优化 */
 }
   .lyrics-container {
   flex: 1;
