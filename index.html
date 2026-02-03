@@ -808,6 +808,13 @@
     0 0 10px rgba(255,255,255,0.7),
     0 0 22px rgba(245,200,76,0.9),
     0 0 30px rgba(106,207,255,1);
+  // 假设你在某处设置高亮
+const newActive = document.querySelector('.lyrics-line[data-index="42"]');
+document.querySelectorAll('.lyrics-line.active').forEach(el => el.classList.remove('active'));
+newActive.classList.add('active');
+
+// 让它居中到窗���（若有固定 header 高度 80px）
+window.lyricsCenter.centerActiveLine(newActive, { headerOffset: 80, smooth: true });
 }
 .lyrics-empty {
   font-family: "Baloo 2","Nunito",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
