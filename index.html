@@ -687,7 +687,20 @@
     }
 
    /* 歌词区域 */
+  /* 默认：靠上并可滚动 */
 .lyrics-container {
+  display: flex;
+  align-items: flex-start;    /* 默认顶部对齐，便于滚动 */
+  justify-content: center;    /* 水平居中块级子元素 */
+  text-align: center;
+  overflow-y: auto;
+}
+
+/* 当内容较短时启用这个类，整体垂直居中 */
+.lyrics-container.center-when-fit {
+  align-items: center;
+}
+  .lyrics-container {
   flex: 1;
   min-height: 60px;
   margin-top: 6px;
