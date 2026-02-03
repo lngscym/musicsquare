@@ -53,32 +53,36 @@
         #02030a;
     }
 
-    /* 主容器：四周留白 */
-    .app {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      height: calc(200vh - 104px);
-      margin: 44px 80px;
-      padding: 10px 12px;
-      gap: 10px;
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.06), transparent 60%),
-                  radial-gradient(circle at 100% 100%, rgba(136,196,255,0.10), transparent 60%),
-                  rgba(0,0,0,0.45);
-      backdrop-filter: blur(14px);
-      box-shadow:
-        0 0 40px rgba(0,0,0,0.9),
-        0 0 120px rgba(136,196,255,0.35);
-    }
-    @media (max-width: 1280px) {
-      .app { margin: 32px 40px; height: calc(200vh - 70px); }
-    }
-    @media (max-width: 900px) {
-      .app { margin: 16px; height: calc(200vh - 32px); }
-    }
+   /* 主容器：四周留白（始终两倍高度） */
+  .app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  /* 原来: height: calc(100vh - 104px); 现在乘以 2 */
+  height: calc(200vh - 208px);
+  margin: 44px 80px;
+  padding: 10px 12px;
+  gap: 10px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.06), transparent 60%),
+              radial-gradient(circle at 100% 100%, rgba(136,196,255,0.10), transparent 60%),
+              rgba(0,0,0,0.45);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 0 40px rgba(0,0,0,0.9),
+    0 0 120px rgba(136,196,255,0.35);
+}
+
+/* media queries 中也相应按原公式乘以 2 */
+@media (max-width: 1280px) {
+  .app { margin: 32px 40px; height: calc(200vh - 140px); } /* = 2*(100vh - 70px) */
+}
+@media (max-width: 900px) {
+  .app { margin: 16px; height: calc(200vh - 64px); } /* = 2*(100vh - 32px) */
+}
 
     .ripple-target,
     .btn,
